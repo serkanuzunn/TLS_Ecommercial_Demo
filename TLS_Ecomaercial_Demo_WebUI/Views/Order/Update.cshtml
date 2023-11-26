@@ -1,0 +1,153 @@
+﻿@using TLS_Ecommercial_Demo_Entity.Entities.Dtos;
+@model TLS_Ecomaercial_Demo_WebUI.Models.UpdateOrderViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Order</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container mt-4">
+        <h2>Update Order</h2>
+
+         <form method="post" action="/Order/Update" class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="OrderNo">Order No:</label>
+                <input value="@Model.Order.OrderNo" type="text" class="form-control" id="OrderNo" name="OrderNo" required  />
+            </div>
+            <div class="form-group">
+                <label for="TotalPrice">Total Price:</label>
+                <input value="@Model.Order.TotalPrice" type="text" class="form-control" id="TotalPrice" name="TotalPrice" required readonly />
+            </div>
+            <div class="form-group">
+                <label for="Tax">Tax:</label>
+                <input value="@Model.Order.Tax" type="text" class="form-control" id="Tax" name="Tax" required readonly />
+            </div>
+
+            @{
+                String delAdressName = @Model.CustomerAddressDto.FirstOrDefault(p => p.AddressId == @Model.Order.DeliveryAddressId).Address;
+                String invAdressName = @Model.CustomerAddressDto.FirstOrDefault(p => p.AddressId == @Model.Order.InvoiceAddressId).Address;
+
+            }
+            <div class="form-group">
+                <label for="DeliveryAddressId">Delivery Address:</label>
+                <input value="@delAdressName" type="text" class="form-control" id="DeliveryAddressId" name="DeliveryAddressId" required readonly />
+            </div>
+         
+            <div class="form-group">
+                <label for="InvoiceAddressId">Invoice Address:</label>
+                <input value="@invAdressName" type="text" class="form-control" id="InvoiceAddressId" name="InvoiceAddressId" required readonly />
+            </div>
+            <div class="form-group">
+                <label for="CustomerId">Customer:</label>
+                <input value="@ViewBag.Name" type="text" class="form-control" id="Name" name="Name" required readonly />
+            </div>
+            <input type="hidden" name="CustomerId" value="@Model.Order.CustomerId" />
+
+
+ 
+            <button type="submit" class="btn btn-success">Update Order</button>
+        </form>
+
+        <hr>
+
+         <h3>Order Details</h3>
+
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Order Detail ID</th>
+                    <th>Product Name</th>
+                    <th>Amount</th>
+                    <th>Unit Price</th>
+                    <th>Total Price</th>                 
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var orderDetail in Model.OrderDetails)
+                {
+                    <tr>
+                        <td>@orderDetail.OrderDetailId</td>
+                        @{
+                            String product = @Model.AllProducts.FirstOrDefault(p => p.ProductId == @orderDetail.ProductId).ProductName;
+                            decimal price = @Model.AllProducts.FirstOrDefault(p => p.ProductId == @orderDetail.ProductId).Price;
+                            decimal totalPrice = ((price * (decimal)orderDetail.Amount) * ((decimal)(Model.Order.Tax) / 100 + 1));
+                        }
+                        <td>@product</td>
+                        <td>@orderDetail.Amount</td>
+                        <td>@price</td>
+                        <td>@totalPrice</td>
+                        <td>
+                            <a href="/Order/OrderDetailUpdate/@orderDetail.OrderDetailId" class="btn btn-success">
+                                <i class="fas fa-edit"></i> Update
+                            </a>
+                            <a href="/Order/OrderDetailDelete/@orderDetail.OrderDetailId" class="btn btn-warning">
+                                <i class="fas fa-trash"></i> Delete
+                            </a>
+                        
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <button class="btn btn-primary" data-toggle="modal" data-target="#addOrderDetailModal">
+            <i class="fas fa-plus"></i> Add Order Detail
+        </button>
+         <div class="modal" id="addOrderDetailModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Add Order Detail</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                         <form  action="/order/OrderDetailAdd">
+                            <div class="form-group">
+                                <label for="ProductId">Product:</label>
+
+                                <select class="form-control" id="ProductId" name="ProductId" required>
+                                    @foreach (var product in Model.AllProducts)
+                                    {
+                                        <option value="@product.ProductId">
+                                            @product.ProductName
+                                        </option>
+                                    }
+                                </select>
+
+                            </div>
+                            <input value="@Model.Order.OrderId" type="hidden" class="form-control" id="OrderId" name="OrderId" required readonly />
+                            <div class="form-group">
+                                <label for="Amount">Amount:</label>
+                                <input type="text" class="form-control" name="Amount" required />
+                            </div>
+                            <button type="submit" class="btn btn-success">Add Order Detail</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <script>
+        function deleteOrderDetail(orderDetailId) {
+             
+            alert('Delete order detail with Order Detail ID ' + orderDetailId);
+        }
+    </script>
+
+</body>
+</html>

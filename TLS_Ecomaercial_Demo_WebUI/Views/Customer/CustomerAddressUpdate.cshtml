@@ -1,0 +1,80 @@
+﻿@using TLS_Ecommercial_Demo_Entity.Entities.Dtos;
+@model CustomerAddressDto
+@{
+    Layout = null;
+}
+
+<div class="container mt-4">
+    <h3 class="mb-4">Update Customer Address</h3>
+
+    <form method="post" action="/CustomerAddress/Update" class="needs-validation" novalidate>
+        <div class="form-group">
+            <label for="Country">Country:</label>
+            <input value="@Model.Country" type="text" class="form-control" id="Country" name="Country" required />
+            <div class="invalid-feedback">Please enter the country.</div>
+        </div>
+        <div class="form-group">
+            <label for="City">City:</label>
+            <input value="@Model.City" type="text" class="form-control" id="City" name="City" required />
+            <div class="invalid-feedback">Please enter the city.</div>
+        </div>
+        <div class="form-group">
+            <label for="Town">Town:</label>
+            <input value="@Model.Town" type="text" class="form-control" id="Town" name="Town" required />
+            <div class="invalid-feedback">Please enter the town.</div>
+        </div>
+        <div class="form-group">
+            <label for="Address">Address:</label>
+            <input value="@Model.Address" type="text" class="form-control" id="Address" name="Address" required />
+            <div class="invalid-feedback">Please enter the address.</div>
+        </div>
+        <div class="form-group">
+            <label for="Email">Email:</label>
+            <input value="@Model.Email" type="email" class="form-control" id="Email" name="Email" required />
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+        <div class="form-group">
+            <label for="Phone">Phone:</label>
+            <input value="@Model.Phone" type="tel" class="form-control" id="Phone" name="Phone" required />
+            <div class="invalid-feedback">Please enter a valid phone number.</div>
+        </div>
+        <div class="form-group">
+            <label for="PostalCode">Postal Code:</label>
+            <input value="@Model.PostalCode" type="text" class="form-control" id="PostalCode" name="PostalCode" required />
+            <div class="invalid-feedback">Please enter the postal code.</div>
+        </div>
+        <div class="form-group">
+            <label for="AddressType">Address Type:</label>
+            <input value="@Model.AddressType" type="text" class="form-control" id="AddressType" name="AddressType" required />
+            <div class="invalid-feedback">Please enter the address type.</div>
+        </div>
+
+        <input type="hidden" name="CustomerId" value="@Model.CustomerId" />
+
+        <div class="form-group">
+            <div class="col-sm-10 offset-sm-2">
+                <button type="submit" class="btn btn-success">Update Address</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    (function () {
+        'use strict';
+
+        window.addEventListener('load', function () {
+            var forms = document.getElementsByClassName('needs-validation');
+
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>

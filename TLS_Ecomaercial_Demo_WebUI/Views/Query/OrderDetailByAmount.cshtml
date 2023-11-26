@@ -1,0 +1,54 @@
+﻿@model List<TLS_Ecommercial_Demo_Entity.Entities.Dtos.OrderDetailsByProductAmountDto>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details By Amount</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container mt-4">
+        <h2>Order Details By Amount</h2>
+
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Customer ID</th>
+                    <th>Customer Name</th>
+                    <th>Total Price</th>
+                    <th>Order Detail ID</th>
+                    <th>Amount</th>
+                    <th>Order No</th>
+                    <th>Order ID</th>
+                    <th>Address Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var orderDetail in Model)
+                {
+                    <tr>
+                        <td>@orderDetail.CustomerId</td>
+                        <td>@orderDetail.CustomerName</td>
+                        <td>@orderDetail.TotalPrice</td>
+                        <td>@orderDetail.OrderDetailId</td>
+                        <td>@orderDetail.Amount</td>
+                        <td>@orderDetail.OrderNo</td>
+                        <td>@orderDetail.OrderId</td>
+                        <td>@orderDetail.AddressType</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

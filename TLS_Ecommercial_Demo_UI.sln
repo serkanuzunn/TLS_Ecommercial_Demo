@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TLS_Ecommercial_Demo_Entity", "TLS_Ecommercial_Demo_Entity\TLS_Ecommercial_Demo_Entity.csproj", "{D90A4799-915E-406A-8AB3-D85B9A60EE66}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TLS_Ecomaercial_Demo_DataAccess", "TLS_Ecomaercial_Demo_DataAccess\TLS_Ecomaercial_Demo_DataAccess.csproj", "{0AB9D84F-7ADE-4027-8E50-E0B3BF18C5C7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TLS_Ecommercial_Demo_Business", "TLS_Ecommercial_Demo_Business\TLS_Ecommercial_Demo_Business.csproj", "{7E75B8F1-E2C0-4A8F-81CF-7DACF3179353}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TLS_Ecommercial_Demo_Core", "TLS_Ecommercial_Demo_Core\TLS_Ecommercial_Demo_Core.csproj", "{B9F81966-661C-4E27-A5EF-AF5D0701308A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TLS_Ecommercial_Demo_Api", "TLS_Ecommercial_Demo_Api\TLS_Ecommercial_Demo_Api.csproj", "{BCF79F69-6598-44D9-92A9-FF65D18050A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TLS_Ecomaercial_Demo_WebUI", "TLS_Ecomaercial_Demo_WebUI\TLS_Ecomaercial_Demo_WebUI.csproj", "{46281E80-C1BD-4477-B76E-88D81FF1092F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D90A4799-915E-406A-8AB3-D85B9A60EE66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D90A4799-915E-406A-8AB3-D85B9A60EE66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D90A4799-915E-406A-8AB3-D85B9A60EE66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D90A4799-915E-406A-8AB3-D85B9A60EE66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AB9D84F-7ADE-4027-8E50-E0B3BF18C5C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AB9D84F-7ADE-4027-8E50-E0B3BF18C5C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AB9D84F-7ADE-4027-8E50-E0B3BF18C5C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AB9D84F-7ADE-4027-8E50-E0B3BF18C5C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E75B8F1-E2C0-4A8F-81CF-7DACF3179353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E75B8F1-E2C0-4A8F-81CF-7DACF3179353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E75B8F1-E2C0-4A8F-81CF-7DACF3179353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E75B8F1-E2C0-4A8F-81CF-7DACF3179353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9F81966-661C-4E27-A5EF-AF5D0701308A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9F81966-661C-4E27-A5EF-AF5D0701308A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9F81966-661C-4E27-A5EF-AF5D0701308A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9F81966-661C-4E27-A5EF-AF5D0701308A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCF79F69-6598-44D9-92A9-FF65D18050A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCF79F69-6598-44D9-92A9-FF65D18050A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCF79F69-6598-44D9-92A9-FF65D18050A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCF79F69-6598-44D9-92A9-FF65D18050A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46281E80-C1BD-4477-B76E-88D81FF1092F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46281E80-C1BD-4477-B76E-88D81FF1092F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46281E80-C1BD-4477-B76E-88D81FF1092F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46281E80-C1BD-4477-B76E-88D81FF1092F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDCC8977-9C59-443E-BA34-E5C89B2886B3}
+	EndGlobalSection
+EndGlobal

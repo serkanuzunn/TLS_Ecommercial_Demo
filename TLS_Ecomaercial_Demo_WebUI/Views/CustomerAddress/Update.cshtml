@@ -1,0 +1,101 @@
+﻿@using TLS_Ecommercial_Demo_Entity.Entities.Dtos;
+@model CustomerAddressDto
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Customer Address</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">Update Customer Address</h3>
+            </div>
+            <div class="card-body">
+                <form method="post" action="/CustomerAddress/Update" class="needs-validation" novalidate>
+                    <div class="form-group">
+                        <label for="Country">Country:</label>
+                        <input value="@Model.Country" type="text" class="form-control" id="Country" name="Country" required />
+                        <div class="invalid-feedback">Please enter the country.</div>
+                    </div>
+                    <input type="hidden" name="AddressId" value="@Model.AddressId" />
+                    <div class="form-group">
+                        <label for="City">City:</label>
+                        <input value="@Model.City" type="text" class="form-control" id="City" name="City" required />
+                        <div class="invalid-feedback">Please enter the city.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="AddressType">Address Type:</label>
+                        <input value="@Model.AddressType" type="text" class="form-control" id="AddressType" name="AddressType" required />
+                        <div class="invalid-feedback">Please enter the address type.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Town">Town:</label>
+                        <input value="@Model.Town" type="text" class="form-control" id="Town" name="Town" required />
+                        <div class="invalid-feedback">Please enter the address type.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Phone">Phone:</label>
+                        <input value="@Model.Phone" type="text" class="form-control" id="Phone" name="Phone" required />
+                        <div class="invalid-feedback">Please enter the address type.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Address">Address:</label>
+                        <input value="@Model.Address" type="text" class="form-control" id="Address" name="Address" required />
+                        <div class="invalid-feedback">Please enter the address type.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Email:</label>
+                        <input value="@Model.Email" type="text" class="form-control" id="Email" name="Email" required />
+                        <div class="invalid-feedback">Please enter the address type.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="PostalCode">PostalCode:</label>
+                        <input value="@Model.PostalCode" type="text" class="form-control" id="PostalCode" name="PostalCode" required />
+                        <div class="invalid-feedback">Please enter the address type.</div>
+                    </div>
+
+                    <input type="hidden" name="CustomerId" value="@Model.CustomerId" />
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Update Address</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        (function () {
+            'use strict';
+
+            window.addEventListener('load', function () {
+                var forms = document.getElementsByClassName('needs-validation');
+
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+
+</body>
+</html>

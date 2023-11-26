@@ -1,0 +1,65 @@
+﻿@using TLS_Ecommercial_Demo_Entity.Entities.Dtos;
+@model List<OrderDto>
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TLS Orders</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container mt-4">
+        <h2>TLS Orders</h2>
+
+        <form method="post" action="/Query/TLSOrders">
+            <div class="form-group">
+                <label for="company">Company:</label>
+                <input type="text" class="form-control" id="company" name="company" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Get Orders</button>
+        </form>
+
+        @if (Model != null && Model.Count > 0)
+        {
+            <h3>Orders for @ViewBag.Company</h3>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Order No</th>
+                        <th>Total Price</th>
+                        <th>Tax</th>
+                     </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model)
+                    {
+                        <tr>
+                            <td>@order.OrderId</td>
+                            <td>@order.OrderNo</td>
+                            <td>@order.TotalPrice</td>
+                            <td>@order.Tax</td>
+                         </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else if (Model != null && Model.Count == 0)
+        {
+            <p>No orders found for @ViewBag.Company</p>
+        }
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

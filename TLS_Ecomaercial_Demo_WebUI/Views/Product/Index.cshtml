@@ -1,0 +1,92 @@
+﻿@model List<TLS_Ecommercial_Demo_Entity.Entities.Dtos.ProductDto>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Product List</h2>
+
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Unit</th>
+                    <th>Price</th>
+                    <th>Barcode</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model)
+                {
+                    <tr>
+                        <td>@product.ProductName</td>
+                        <td>@product.Unit</td>
+                        <td>@product.Price</td>
+                        <td>@product.Barcode</td>
+                        <td>
+                            <a href="/product/Delete/@product.ProductId" class="btn btn-danger">
+                                <i class="fas fa-edit"></i> Delete
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/product/Update/@product.ProductId" class="btn btn-success">
+                                <i class="fas fa-edit"></i> Update
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <h3 class="mt-4">Add Product</h3>
+        <form method="post" action="/Product/Add">
+            <div class="form-group">
+                <label for="ProductName">Product Name:</label>
+                <input type="text" class="form-control" name="ProductName" required />
+            </div>
+
+            <div class="form-group">
+                <label for="Unit">Unit:</label>
+                <input type="number" class="form-control" name="Unit" required />
+            </div>
+
+            <div class="form-group">
+                <label for="Price">Price:</label>
+                <input type="number" step="0.01" class="form-control" name="Price" required />
+            </div>
+
+            <div class="form-group">
+                <label for="Barcode">Barcode:</label>
+                <input type="number" class="form-control" name="Barcode" required />
+            </div>
+
+            <button type="submit" class="btn btn-success">Add Product</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <script>
+        function deleteProduct(productId) {
+            
+            alert('Delete product with ID ' + productId);
+        }
+
+        function editProduct(productId) {
+        
+            alert('Edit product with ID ' + productId);
+        }
+    </script>
+</body>
+</html>

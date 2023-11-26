@@ -1,0 +1,90 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anasayfa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #444;
+            padding: 10px;
+        }
+
+            nav a {
+                text-decoration: none;
+                color: white;
+                padding: 8px 16px;
+                border-radius: 4px;
+                transition: background-color 0.3s;
+            }
+
+                nav a:hover {
+                    background-color: #555;
+                }
+
+        section {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .query-box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-right: 10px;
+            width: 150px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Anasayfa</h1>S
+
+    <nav>
+        <a href="/order/index/">Orders</a>
+        <a href="/customer/index/">Customers</a>
+        <a href="/product/index/">Products</a>
+    </nav>
+
+    <section>
+        <div class="query-box">
+            <a href="/Query/CustomerOrders">Customer Orders</a>
+        </div>
+        <div class="query-box">
+            <a href="/Query/OrderDetailByAmount">Order Detail By Amount</a>
+        </div>
+        <div class="query-box">
+            <a href="/Query/IstanbulOrder">Istanbul Order</a>
+        </div>
+        <div class="query-box">
+            <a href="/Query/TLSOrders">TLS Orders</a>
+        </div>
+        <div class="query-box">
+            <a href="/Query/DifferentAddress">Different Address</a>
+        </div>
+    </section>
+</body>
+</html>

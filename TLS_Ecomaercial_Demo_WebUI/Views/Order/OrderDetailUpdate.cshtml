@@ -1,0 +1,58 @@
+﻿@model TLS_Ecomaercial_Demo_WebUI.Models.UpdateOrderViewModel
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Update Order Detail</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="container mt-4">
+		<h2>Update Order Detail</h2>
+
+		<form method="post" action="/Order/OrderDetailUpdate" class="needs-validation" novalidate>
+			<div class="form-group">
+				<label for="OrderDetailId">Order Detail ID:</label>
+				<input value="@Model.OrderDetail.OrderDetailId" type="text" class="form-control" id="OrderDetailId" name="OrderDetailId" required readonly />
+			</div>
+			<div class="form-group">
+				<label for="OrderId">Order ID:</label>
+				<input value="@Model.OrderDetail.OrderId" type="text" class="form-control" id="OrderId" name="OrderId" required readonly />
+			</div>
+			<div class="form-group">
+				<label for="ProductId">Product:</label>
+				
+				<select class="form-control" id="ProductId" name="ProductId" required>
+					@foreach (var product in Model.AllProducts)
+					{
+						<option value="@product.ProductId">
+							@product.ProductName
+						</option>
+					}
+				</select>
+
+			</div>
+			<div class="form-group">
+				<label for="Amount">Amount:</label>
+				<input value="@Model.OrderDetail.Amount" type="text" class="form-control" id="Amount" name="Amount" required />
+			</div>
+
+ 
+			<button type="submit" class="btn btn-success">Update Order Detail</button>
+		</form>
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

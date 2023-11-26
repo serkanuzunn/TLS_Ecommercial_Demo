@@ -1,0 +1,52 @@
+﻿@using TLS_Ecommercial_Demo_Entity.Entities.Dtos;
+@model List<CustomerWithAddressDto>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Customer With Address</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container mt-4">
+        <h2>Get Customer With Address</h2>
+
+        <form action="/Query/CustomerOrders">
+            <div class="form-group">
+                <label for="productId">Ürün ID:</label>
+                <input type="text" class="form-control" id="productId" name="id" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Getir</button>
+        </form>
+
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <div class="mt-4">
+                    <ul class="list-group">
+                        <li class="list-group-item">Customer ID: <strong>@item.CustomerId</strong></li>
+                        <li class="list-group-item">Customer Name: <strong>@item.CustomerName</strong></li>
+                        <li class="list-group-item">Country: <strong>@item.Country</strong></li>
+                        <li class="list-group-item">City: <strong>@item.City</strong></li>
+                        <li class="list-group-item">Town: <strong>@item.Town</strong></li>
+                        <li class="list-group-item">Address: <strong>@item.Address</strong></li>
+                    </ul>
+                </div>
+            }
+       
+        }
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
